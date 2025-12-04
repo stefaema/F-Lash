@@ -13,6 +13,9 @@ class DeckImportDTO(BaseModel):
     title: str
     description: Optional[str] = ""
     is_public: bool = False
+    version: int = 1
+    front_language: str = "en"
+    back_language: str = "en"
     cards: List[CardImportDTO]
 
     @field_validator('cards')

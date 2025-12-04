@@ -66,7 +66,10 @@ def save_dto_to_db(user_id: int, deck_dto: DeckImportDTO) -> str:
             owner_id=user_id,
             title=deck_dto.title,
             description=deck_dto.description,
-            is_public=deck_dto.is_public
+            is_public=deck_dto.is_public,
+            version=deck_dto.version,
+            front_language=deck_dto.front_language,
+            back_language=deck_dto.back_language
         )
         session.add(new_deck)
         session.commit()

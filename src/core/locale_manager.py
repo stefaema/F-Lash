@@ -9,7 +9,7 @@ from core.log_manager import logger
 # The reference to the directory where locale files (e.g., en.json) are stored.
 I18N_PACKAGE_REF = pkg_resources.files('i18n')
 
-FALLBACK_LOCALE = 'en'
+FALLBACK_LOCALE = 'es'
 
 class LocaleManager:
     """

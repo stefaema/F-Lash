@@ -151,7 +151,7 @@ def my_bookshelf_page():
         border_class = 'border-yellow-500/50' if is_favorite_list else 'border-white/10'
         bg_class = 'bg-indigo-900/20' if is_favorite_list else 'bg-black/40'
 
-        with ui.card().classes(f'{bg_class} border {border_class} hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between h-64 overflow-hidden relative group'):
+        with ui.card().classes(f'{bg_class} border {border_class} hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between h-96 overflow-hidden relative group'):
             
             # --- Top: Header ---
             with ui.row().classes('w-full justify-between items-start'):
@@ -187,14 +187,14 @@ def my_bookshelf_page():
                 ui.label(deck['description'] or T("deck_without_description")).classes('text-xs text-gray-400 line-clamp-2 leading-snug')
 
             # --- Stats Row ---
-            with ui.row().classes('w-full mt-auto mb-2 gap-4'):
-                with ui.column().classes('gap-0'):
-                    ui.label(str(deck['total_sessions'])).classes('text-lg font-bold text-indigo-300 leading-none')
-                    ui.label(T("sessions")).classes('text-[10px] text-gray-500 uppercase')
+            # with ui.row().classes('w-full mt-auto mb-2 gap-4'):
+            #     with ui.column().classes('gap-0'):
+            #         ui.label(str(deck['total_sessions'])).classes('text-lg font-bold text-indigo-300 leading-none')
+            #         ui.label(T("sessions")).classes('text-[10px] text-gray-500 uppercase')
                 
-                with ui.column().classes('gap-0'):
-                    ui.label(deck['last_played']).classes('text-sm font-bold text-gray-300 leading-tight mt-1')
-                    ui.label(T("last_activity")).classes('text-[10px] text-gray-500 uppercase')
+            #     with ui.column().classes('gap-0'):
+            #         ui.label(deck['last_played']).classes('text-sm font-bold text-gray-300 leading-tight mt-1')
+            #         ui.label(T("last_activity")).classes('text-[10px] text-gray-500 uppercase')
 
             # --- Bottom: Action ---
             with ui.row().classes('w-[calc(100%+2rem)] -ml-4 -mb-4 pt-3 pb-3 px-4 border-t border-white/10 bg-black/20 justify-between items-center'):

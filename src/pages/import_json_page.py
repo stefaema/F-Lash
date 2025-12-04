@@ -54,34 +54,34 @@ def import_json_page():
                         # Badge: Card Count
                         with ui.row().classes('items-center bg-indigo-500/20 px-3 py-1 rounded-full border border-indigo-500/50'):
                             ui.icon('style', size='xs').classes('mr-2')
-                            ui.label(f"{stats['card_count']} Cards").classes('font-bold')
+                            ui.label(T("card_count_info", count=len(dto.cards))).classes('font-bold')
 
                 # -- STATS GRID --
                 with ui.grid(columns=2).classes('w-full gap-4 mt-4'):
                     # Col 1: Tags
                     with ui.column().classes('p-3 bg-black/20 rounded-lg border border-white/10'):
-                        ui.label("Detected Tags").classes('text-xs text-gray-400 uppercase font-bold tracking-wider mb-2')
+                        ui.label(T("detected_tags")).classes('text-xs text-gray-400 uppercase font-bold tracking-wider mb-2')
                         if stats['unique_tags']:
                             with ui.row().classes('gap-2 wrap'):
                                 for tag in stats['unique_tags']:
                                     ui.label(tag).classes('px-2 py-1 bg-white/10 rounded text-xs text-indigo-200')
                         else:
-                            ui.label("No tags found").classes('text-gray-600 italic text-sm')
+                            ui.label(T("no_tags_detected")).classes('text-gray-600 italic text-sm')
 
                     # Col 2: Sources
                     with ui.column().classes('p-3 bg-black/20 rounded-lg border border-white/10'):
-                        ui.label("Top Sources").classes('text-xs text-gray-400 uppercase font-bold tracking-wider mb-2')
+                        ui.label(T("top_sources")).classes('text-xs text-gray-400 uppercase font-bold tracking-wider mb-2')
                         if stats['top_sources']:
                             with ui.column().classes('gap-1'):
                                 for src, count in stats['top_sources']:
                                     with ui.row().classes('w-full justify-between text-sm'):
-                                        ui.label(src if src else "Unknown").classes('truncate w-32 text-gray-300')
+                                        ui.label(src if src else T("unknown")).classes('truncate w-32 text-gray-300')
                                         ui.label(f"x{count}").classes('text-gray-500')
                         else:
-                            ui.label("No sources found").classes('text-gray-600 italic text-sm')
+                            ui.label(T("no_sources_detected")).classes('text-gray-600 italic text-sm')
 
                 # -- COLLAPSIBLE PREVIEW --
-                with ui.expansion(f"View all {stats['card_count']} Cards", icon="visibility").classes('w-full mt-4 bg-black/20 rounded-lg border border-white/10').props("header-class='text-indigo-300'"):
+                with ui.expansion(T("view_all_cards", card_count=len(dto.cards)), icon="visibility").classes('w-full mt-4 bg-black/20 rounded-lg border border-white/10').props("header-class='text-indigo-300'"):
                      with ui.scroll_area().classes('h-64 w-full preview-scroll p-2'):
                          with ui.column().classes('gap-2 w-full'):
                              for i, card in enumerate(dto.cards, 1):
@@ -109,10 +109,10 @@ def import_json_page():
         user_id = app.storage.user.get('id')
         try:
             deck_title = save_dto_to_db(user_id, current_import_data['dto'])
-            ui.notify(f"Success! Imported '{deck_title}'", type='positive')
+            ui.notify(T("import_json_step3_success", deck_title=deck_title), type='positive')
             stepper_element.next() # Go to Step 4
         except Exception as e:
-            ui.notify(f"Database Error: {e}", type='negative')
+            ui.notify(f"{T('import_json_step3_db_error')}{e}", type='negative')
 
     with ui.column().classes('w-screen min-h-screen gradient-bg text-white p-8 overflow-y-auto overflow-x-auto'):
         

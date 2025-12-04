@@ -1,0 +1,1404 @@
+{
+  "title": "Sistemas Operativos I - FCEFyN UNC",
+  "description": "Corresponde a los contenidos de la cátedra de Sistemas Operativos I para la carrera Ingeniería en Computación de la FCEFyN, UNC.",
+  "is_public": true,
+  "version": 1,
+  "front_language": "es",
+  "back_language": "es",
+  "cards": [
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son los elementos básicos de un sistema de computación?",
+        "back_content": "Procesador, Memoria, Dispositivos E/S y el Bus de Sistema"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué tipo de registros se encuentran en un procesador con respecto a su nivel de visibilidad/accesibilidad?",
+        "back_content": "Se encuentran aquellos visibles para el usuario y aquellos de intrínseco control."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué tipo de registros son visibles para el usuario?",
+        "back_content": "Aquellos que almacenan información referencial (de direcciones a pilas, etc). o con datos de programa."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuales registros son usados para el control del sistema?",
+        "back_content": "Aquellos conocidos como: Contador de Programa o Program Counter (PC), Registro de Instrucción o Instruction Register (IR) y Palabra de Estado de Programa o Program State Word (PSW)"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es un ciclo de Instrucción?",
+        "back_content": "Es el conjunto de operaciones que se ejecutan por cada instrucción. (Según PC cargar IR, ejecutar, aumentar PC, etc...)"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué tipos de instrucción puede realizar un procesador?",
+        "back_content": "Instrucciones de transferencia (memoria o E/S), operaciones de flujo (ej. GOTO) y operaciones lógico-aritméticas (XOR, ADD)"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué ocurre en el procesador al ocurrir una interrupción?",
+        "back_content": "1. Procesador recibe la señal al finalizar la instrucción en curso.\n2. Guarda registros de control y luego registros de usuario en pila de control.\n3. Carga la dirección de la rutina del manejo correspondiente.\n4. La rutina procesa la interrupción y al terminar restaura los registros.\n5. Se reanuda el programa"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Con qué finalidad se implementan las interrupciones?",
+        "back_content": "Se implementan para que el procesador atienda eventos sin interrumpir la ejecución del programa principal, multiplexando así las tareas a realizar."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué clase de interrupciones existen?",
+        "back_content": "1. **De programa**: Ocurren por errores o condiciones específicas dentro del CPU (ej. división por cero, instrucción inválida).\n2. **De reloj**: Generadas periódicamente por el temporizador del sistema para gestionar multitarea.\n3. **De E/S**: Provocadas por dispositivos externos (teclado, disco, red) cuando requieren atención del procesador."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las 3 formas en las que el OS permite la ejecución de instrucciones de transferencia de dispositivos E/S? Solo indícalas",
+        "back_content": "Operaciones programadas, basadas en interrupciones o basadas en DMA."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué caracteriza una operación E/S programada?",
+        "back_content": "Que se realiza y espera resultados mediante polling. Es muy inefectivo y rudimentario."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué caracteriza a una operación E/S basada en interrupciones?",
+        "back_content": "El procesador no espera activamente el resultado de la operación, sino que espera pasivamente, mediante interrupciones. Esto le permite realizar otras tareas."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué caracteriza a una operación E/S basada en DMA?",
+        "back_content": "Que un módulo especializado, el cual tiene acceso a la memoria y a los dispositivos, se encarga de realizar las transferencias. El CPU simplemente o realiza peticiones a este módulo o recibe interrupciones del mismo con la finalización de la operación."
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se mapea la jerarquía de memoria, según cantidad de almacenamiento vs precio?",
+        "back_content": "1. In-Board (Registros, Caché, RAM)\n2. Near-Board (NVMe)\n3. Off-Board (HDDs)\n4. Off-Line (CDs, Cassetes)\n5. Off-Site (Cloud)"
+    },
+    {
+        "tags": ["Clase 1: Cuestiones Básicas de CPU, E/S e Interrupciones"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el caché de Memoria? Referido a este concepto, ¿Qué es un Hit o un Miss?",
+        "back_content": "Es un módulo de Hardware cuya función consiste en intentar predecir lo que los registros del procesador podrían necesitar de la memoria principal, para otorgar esa información más rápido.\nEn caso de que el dato estuviese en el caché, se produjo un Hit. Sino, un Miss"
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué rol cumple el Sistema Operativo?",
+        "back_content": "Se encarga de ser el medidador entre el Hardware del equipo y las aplicaciones que el usuario desea ejecutar."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué objetivos tiene el Sistema Operativo?",
+        "back_content": "Tiene que ser eficiente (aprovechar sus recursos), evolucionar (mejorar en el tiempo) y ser cómodo (fácil y práctico de usar)."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué funciones debe otorgar el Sistema Operativo?",
+        "back_content": "Función de uso: Proveer herramientas para ejecutar y crear programas.\nFunción de control: Debe permitir el control de accesos (cuentas, privilegios, etc.) y proveer herramientas de monitoreo y estadística.\nFunción de Mitigación: Debe tener herramientas de control y mitigación de errores tanto de Hardware como de Software."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 1,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo eran las computadoras en la primera generación(en los 40s)?",
+        "back_content": "Se manejaban por operarios especializados a nivel de Hardware y con válvulas electromecánicas. Mucho tiempo de Setup y solo se podía trabajar de manera serial y por turnos."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 1,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo mejoraron las computadoras en la segunda generación (50s)?",
+        "back_content": "Aparecieron sistemas con transistores y un monitor que implementa colas de trabajo, para que se vayan haciendo tareas a medida terminen."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 1,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo mejoraron las computadoras en la tercera generación (60s-80s)?",
+        "back_content": "Mejora la disposición de los circuitos dentro de la computadora, junto con la multiprogramación e incluso el time-sharing o tiempo compartido."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 1,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo mejoraron las computadoras en la cuarta generación (80s-90s)?",
+        "back_content": "Aparece el auge de las microcomputadoras, se estandariza le uso de GUIs y se fundan las empresas actuales líderes."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 1,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo mejoraron las computadoras en la quinta generación (90S- Presente)?",
+        "back_content": "Aparece el smartphone como concepto, y dispositivos con amplia movilidad/poder de cómputo."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles fueron los mayores logros del rubro de los Sistemas Operativos?",
+        "back_content": "La creación del proceso, del manejo de memoria y la memoria virtual, afianzamiento de la seguridad y protección de la información y la planificación (scheduling) avanzada de los recursos."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Dentro de los mayores logros del rubro, ¿Por qué aparece el concepto de proceso? ¿Qué tiene en su estrcutura como para que ayude al problema que soluciona?",
+        "back_content": "El proceso es una estructura que aparece para mitigar los problemas de la multiprogramación. Al no solo tener un programa ejecutable con sus datos sino también información de su entorno o contexto, se puede controlar mejor la multiprogramación."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles fueron los mayores problemas de la Multiprogramación? Defina en que consisten.",
+        "back_content": "Sincronización defectuosa (señalización entre rutinas incorrectas), fallos de exlusión mutua (accesos conflictivos al mismo recurso), funcionamiento no determinístico (interferencias ajenas al programa) e interbloqueos (varias partes se esperan entre sí)"
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Dentro de los mayores logros del rubro, ¿Qué requerimientos llevaron a las implementaciones del manejo de memoria moderno dentro de cualquier Sistema Operativo?",
+        "back_content": "Se requería una manera de aislar a los procesos entre sí para seguir solucionando problemas de multiprogramación, asignar automática y de manera transparente la memoria, proteger y controlar el acceso compartido a recursos y además se requería la integración del almacenamiento a largo plazo en el sistema."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué suponía el concepto de Memoria Virtual? Resumidamente.",
+        "back_content": "Independizaba la asignación de memoria para los procesos de la memoria RAM física disponible, permitiendo almacenar parte de los procesos en el almacenamiento secundario y aumentar tanto la cantidad de procesos que se pueden ejecutar como así también su tamaño."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Dentro de los logros del rubro, ¿Qué se logró con respecto a la seguridad y la protección de la información?",
+        "back_content": "Disponibilidad: Que no hayan interrupciones indeseadas en el servicio.\nConfidencialidad: Que el sistema operativo esté comprometido a que no se pueda sobrepasar y leer zonas de acceso denegado.\nIntegridad:Que no se puedan modificar archivos a los que no se tiene acceso.\nAutentificación: Que el OS logre identificar a los usuarios de manera correcta."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Dentro de los logros del rubro, ¿Qué requerimientos se pide para la planificación y gestión de recursos?",
+        "back_content": "Un Sistema Operativo debe brindar recursos de manera equitativa entre procesos (Equidad), a no ser que ese proceso requiera una operación urgente y tenga mayor prioridad (Respuesta Diferenciada). Además, el OS debe asegurarse de que los recursos no estén parados o sin usar por mucho tiempo (Eficiencia)."
+    },
+    {
+        "tags": ["Clase 2: Características, Objetivos, Historia y Funciones del Sistema Operativo"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué características puede tener un OS moderno? No considerar las características propias de los mejores logros del rubro (procesos, gestión de memoria, seguridad, planificación)",
+        "back_content": "Microkernel: En contraposición a un kernel monolítico, existen OS cuya parte en modo kernel está ampliamente reducida.\nMultithreading: Existen OS con capacidad de ejecución de múltiples hilos pero de manera nativa.\nMultiprocesamiento Simétrico: Capacidad de un OS o del Hardware de ejecutar varios procesos simultáneamente, mediante el uso de múltiples núcleos de iguales características. Comparten periféricos y la memoria.\nSistemas Operativos Distribuidos: Existen OS's que generan la ilusión de un sistema holístico, cuando en realidad se trata de múltiples sistemas con múltiples memorias y periféricos."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es un Proceso? ¿Qué parte del mismo lo hace óptimo para la multiprogramación?",
+        "back_content": "Es una estructura que contiene instrucciones e información, la cuál fue optimizada para poder ser ejecutada en un entorno multiprogramación gracias a su bloque de control. Este permite generar la capacidad de guardar y cargar el contexto del programa, lo que resulta en la capacidad de parar y reiniciar su ejecución."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué información contiene el **Bloque de Control** de un Proceso?",
+        "back_content": "- Identificador (PID)\n- Estado de Proceso\n- Prioridad\n- Program Counter\n- Gestión de memoria (punteros, datos, pila)\n- Registros del CPU\n- Recursos de E/S (archivos abiertos, dispositivos usados)\n- Información de Contabilidad del Proceso (uso del CPU, memoria, tiempo de ejecución)"
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Describa el modelo de estados más simple para los procesos (Modelo Biestado)",
+        "back_content": "Se limita a un estado de *\"en ejecución\"* y otro de *\"no en ejecución\"*. Se puede representar al conjunto de procesos *\"no en ejecución\"* como una cola además."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Describa la adición de dos estados más al modelo biestado de un proceso: creación y terminación.",
+        "back_content": "Un proceso que no está corriendo, pero cuya información aún no está completa porque recién se creó (ya sea por petición del usuario, de un proceso padre o del mismo OS) se considera como un proceso en estado *\"creado\"* o \"new\".\n\nUn proceso que no está corriendo pero cuya información ya no está completa porque el proceso en sí ya no está accesible se considera *\"terminado\"*. Esta terminación puede suceder por cuenta propia, a causa del usuario o debido a la voluntad del OS (en caso de límites, errores o cuestiones del proceso padre como su terminación o petición)"
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Describa el modelo de 5 estados de un Proceso",
+        "back_content": "Además del estado de Creación y Terminación, aparece un nuevo estado, similar a \"No en ejecución\" llamado \"Bloqueado\". Este estado significa que el proceso no está en ejecución pero porque está a la espera de la culminación de un evento o señal."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Describa el modelo de 7 estados para un proceso y por qué se añade la suspensión como posibilidad. Además, ¿Qué es el mecanismo de swapping en este contexto?",
+        "back_content": "Debido a que la memoria principal no es infinita y generalmente mucho menor que la memoria secundaria, es deseable tener un mecanismo para guardar momentáneamente procesos ya sea en estado listo o bloqueado en la memoria secundaria. Este mecanismo, llamado swapping introduce estos dos nuevos estados: *\"Bloqueado y Suspendido\"*, junto con *\"Listo y Suspendido\"*."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué estructuras de Control existen para manejar cuestiones del Sistema Operativo como archivos, prcoesos, E/S y memoria?",
+        "back_content": "Existen:\n- Tablas de Memoria: Contienen información de la memoria principal y secundaria junto con esquemas de protección.\n- Tablas de E/S: Contienen información de estado del os dispositivos y su relación con procesos o direcciones de memoria.\n- Tablas de Archivos: Contiene información de archivos, como su ubicación, atributos y estado.\n- Tablas de Proceso: Contienen punteros a los bloques de control de cada proceso donde el PID es el índice de la tabla."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qués son los modos de Ejecución del Procesador?¿Para qué sirven?",
+        "back_content": "Un procesador puede estar en 2 modos distintos: modo Kernel y modo Usuario.\nEn el modo Kernel, el software tinee control total sobre el procesador y de todas sus instrucciones, registros, dispositivos y memoria.\nEn el modo Usuario no se permite el acceso no autorizado a zonas de moemoria ni ejecutar instrucciones privilegiadas. Sirve para la integridad, protección y estabilidad del OS."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo es el mecanismo que realiza un OS para crear un proceso?",
+        "back_content": "1. Se asigna un nuevo identificador al proceso y se agrega su entrada correspondiente en la tabla.\n2. Se asigna memoria para la imagen del proceso y se especifican regiones de memoria compartidas.\n3. Se inicializa el bloque de control del proceso dentro de la imagen, según valores estandarizados.\n4. Se añaden punteros a este nuevo proceso a otros recursos del OS que necesiten esta nueva información (por ejemplo, a la cola de \"procesos que están en estado iniciado\")\n5. Rellena otras estructuras de datos que tiene que ver con los procesos en el OS."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuándo se interrumpe un proceso en ejecución?",
+        "back_content": "Cuando se produce una interrupción (ya sea de reloj, de evento o falla), un error o excepción o una petición del proceso mediante System Calls por ejemplo."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Cuando se interrumpe un proceso en ejecución, ¿Qué puede suceder con el proceso interrumpido? ¿Cómo el OS maneja esto a nivel de contexto?",
+        "back_content": "Se maneja la interrupción y ahí pueden pasar dos cosas:\nO la interrupción se atiende y listo, se reanuda el proceso interrumpido (solo se guarda el contexto del CPU momentaneamente hasta que la interrupción termine)\nO luego de la interrupción el proceso que se ejecuta es otro. En ese caso, hay que guardar el bloque de control del proceso intercambiado y modificar entradas en las tablas o estructuras de control como por ejemplo la cola de estados del proceso, no solo el contexto del CPU."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué tan integrado está el proceso en los distintos diseños de Sistemas Operativos?",
+        "back_content": "Hay niveles de integración del proceso distintos:\n- Kernel separado (Nonprocess Kernel): El Kernel del OS no es un proceso y tiene su propio stack y regiones de memoria. (Ej. Linux)\n- Ejecución embebida en los procesos del usuario: Cada proceso generado tiene capacidades de OS si este está en modo Kernel. (Ejemplo, Hyper-V)\n- Sistemas Operativos basados en procesos: El OS en su totalidad brinda servicios aislados como procesos independientes, con un microkernel como kernel. (QNX, OS para embebidos)"
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo son los estados de los procesos en Unix?",
+        "back_content": "Además de los 7 Estados, se agrega el estado de *\"desalojado\"* o *\"preempted\"*(Cuando el proceso fue interrumpido e intercambiado por otro) y se separa el estado \"en ejecución\" dependiendo si se está en modo kernel o modo usuario."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se afronta la seguridad en los Sistemas Operativos a nivel de privilegios?",
+        "back_content": "- Los usuarios tienen privilegios para acceder a recursos.\n- Los procesos heredan los privilegios del usuario.\n- Un administrador tiene acceso total al sistema.\n- Se intenta monitorear y evitar que nadie o nada escale privilegios de manera fraudulenta."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué amenazas se pueden encontrar que afecten al acceso a un sistema de computación?",
+        "back_content": "- Intrusos: Personas que buscan acceso no autorizado o escalar privilegios.\n- Malware parásito: Depende de otros programas para funcionar\n- Malware Independiente: Programas completos que se ejecutan solos."
+    },
+    {
+        "tags": ["Clase 3: Procesos, Estados y Estructuras de Control"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué contramedidas se adoptan para mitigar las amenazas en los sistemas de computación?",
+        "back_content": "Se procura detectar intrusos y monitorear eventos de sistema tanto en hosts como en redes."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿De donde se desprende el concepto de Hilo? ¿Qué es?",
+        "back_content": "Cuando se definió al proceso desde un punto de vista estructural y otro de ejecución de un programa, se empezó a gestar una distinción a éste último punto de vista. Es decir que un hilo es una unidad de ejecución dentro de un programa."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué características tienen los hilos?",
+        "back_content": "Tiene un estado, espacio estático para variables, su pila y el contexto de procesador y programa. Sin embargo, compartirá recursos y acceso a la memoria con el resto del proceso."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué beneficios y deventajas traen la aparición de los hilos?",
+        "back_content": "A costa de ser más difíciles de depurar y de tener que manualmente gestionar la sincronización entre hilos (ya que el programador tiene que diseñar su control), los hilos permiten un menor consumo de recursos, mayor velocidad y mejor comunicación ya que son más ligeros y comparten memoria."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué usos puede tener un sistema multihilo en el que este sobresalga?",
+        "back_content": "- Se puede usar para trabajos que se deben realizar en segundo plano, trabajos asíncrono o para tener la capacidad de ejecutar multiples hilos simultáneamente de un mismo proceso, si es que el Hardware lo admite."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué estados puede tener un hilo?",
+        "back_content": "Un hilo solo puede estar siendo ejecutado, estar listo o bloqueado. La suspensión se realiza a nivel proceso, por lo que no existe para los hilos."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué son los Hilos a nivel Kernel? ¿Y los de nivel Usuario?",
+        "back_content": "Ambos son maneras de gestionar hilos.\nCuando los hilos son a nivel Kernel, el OS ofrece de manera nativa soporte para ejecutarlos simultáneamente o bloquearlos de manera individual, lo cual permite una mejor multiprogramación a costa de una menor flexibilidad, portabilidad y eficiencia."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué no se puede aumentar indefinidamente la velocidad de reloj de un procesador?",
+        "back_content": "Debido a la restricción de la disipación de calor *(power wall)* y de velocidad de memoria *(memory wall)*."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se puede mejorar un sistema de computación evitando el power y memory wall?",
+        "back_content": "Usando multiprocesamiento, en el que se utiliza más de un chip trabajando en paralelo para lograr la ejecución de tareas."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las dos principales arquitecturas de multiprocesamiento?\nEn una GPU, ¿Cuál arquitectura se considera más apropiada para representarla?",
+        "back_content": "Existen 2 principales arquitecturas:\nMIMD (Multiple Instructions, Multiple Data Stream)\nSIMD (Single Instruction, multiple Data Stream)\n\nLas GPUs son SIMD, ya que permiten realizar el mismo cálculo (Single Instruction) a datos en paralelo (Multiple Data Stream)"
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "Dentro de las MIMD, ¿Qué dos variantes se pueden hallar?",
+        "back_content": "Se hallan tanto sistemas que comparten memoria (Por ejemplo, compendios maestro esclavo o multiprocesadores simétricos) y sistemas con memoria distribuida, como clusters. Aquí la memoria se distribuye aunque el sistema como tal se intenta tratar como si tuviese una memoria unificada."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué acarrea el uso de Multiprocesadores Simétricos (SMP)?",
+        "back_content": "Acarrea la necesidad de otorgar tolerencia a fallos y robustez ante problemas de sincronización. manejo de memoria y de ejecución de procesos."
+    },
+    {
+        "tags": ["Clase 4: Hilos y Multiprocesamiento"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué operaciones termina haciendo un microkernel?",
+        "back_content": "Solo las más básicas:\nManejo de interrupciones, controladores de E/S e IPC."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es el objetivo del manejo de memoria en un Sistema Operativo?",
+        "back_content": "Mantener la mayor cantidad posible de procesos en memoria para maximizar el uso del CPU, gestionando eficientemente su asignación y uso."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿A qué se refiere alguien que afirma que el manejo de memoria es dinámico?",
+        "back_content": "Se refiere a que los procesos entran y salen de memoria, tienen distintos tamaños y necesidades y además su ubicación puede cambiar en el tiempo."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se divide la memoria principal en términos de accesibilidad desde el punto de vista más general?",
+        "back_content": "Está el espacio disponible para el usuario y el espacio reservado para cuestiones del Sistema Operativo."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son los requisitos y por ende objetivos que se buscan para un Manejo de Memoria Eficiente?",
+        "back_content": "- Reubicación\n- Protección\n- Compartición\n- Organización Lógica Interna\n- Organización Física"
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué es necesaria la reubicación en memoria de los procesos?",
+        "back_content": "Debido al swapping y la carga de múltiples procesos, la ubicación de un proceso no será siempre la misma."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone la reubicación de un proceso bajo el contexto del direccionamiento?¿Cómo se logra esto?",
+        "back_content": "Ya que la ubicación de un proceso no será la misma, se deben desarrollar técnicas de abstracción de direcciones, para que sean relativas a la ubicación en cada momento del procesador. Esto se logra mediante el uso de tablas de direcciones y mecanismos de traducción."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué justificación tiene el hincapié en la protección de la memoria entre procesos?",
+        "back_content": "Se justifica debido a la posible corrupción de datos, interferencias o fallos de sistema que podrían ocurrir en caso de que un proceso se vuelva capaz de acceder o modificar memoria ajena al mismo."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué la protección de memoria se implementa a nivel Hardware? ¿Cómo se implementa?",
+        "back_content": "Ya que los accesos ocurren en tiempo real y el Sistema Operativo se enajena del control del sistema mientras un proceso ejecuta sus instrucciones, no queda otra que relegar estos aspectos de seguridad al Hardware.\nSe implementa mediante límites en la memoria, los cuales al ser detectados por el Sistema Operativo, se lanza una excepción, abortando la instrucción."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué se necesita compartir memoria entre procesos?",
+        "back_content": "Para permitir la cooperación entre procesos o el uso eficiente de recursos en caso de que los procesos trabajen constantemente sobre los mismos datos."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se asegura el Sistema Operativo de compartir memoria de manera segura?",
+        "back_content": "Aprovecha a los mecanismos de reubicación y además implementa el concepto de permisos de acceso."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué permite la gestión modular de memoria con respecto a la Organización Lógica Interna de un manejo de memoria? ¿Qué tecnología se encarga de implementar esto?",
+        "back_content": "Si separamos segmentos de memoria de un programa según su función, podemos asignarle a cada segmento permisos específicos o capacidad de compartir memoria. La tecnología que implementa esto es la segmentación."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué se debe administrar bien el flujo entre la memoria principal y la memoria secundaria? ¿A qué se debe que el SIstema Operativo sea el encargado de manejar esto? ¿Qué técnicas utiliza para lograrlo?",
+        "back_content": "Se debe administrar bien ya que existe un flujo constante entre ambas, debido a que la memoria secundaria resulta en justamente el lugar predilecto para almacenar información y procesos cuando la memoria principal está llena.\n\nEl Sistema Operativo se encarga de esto ya que evita que el programador tenga que gestionarla manualmente, y además permite optimizar la memoria según la disponibilidad del resto de componentes del sistema.\n\nPara implementar esta arista del manejo de memoria, se recurre a conceptos como la memoria virtual, swapping y paginación."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el particionado de memoria? ¿Qué tipos existen y que problemas tienen?",
+        "back_content": "El particionado de memoria es la técnica de gestión en la cual el Sistema Operativo divide la memoria en bloques para asignarle a cada proceso.\n\nExiste el particionado fijo y variable, y frente al uso de esta técncia aparecen los problemas del desaprovechamiento de memoria llamado fragmentación, ya sea interna como externa."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el particionado fijo? ¿Qué estrategias e inconvenientes presenta?",
+        "back_content": "Consiste en dividir la memoria en particiones inamovibles, las cuales pueden ser del mismo o distinto tamaño.\nCuando un proceso quiere entrar en memoria, espera en una cola y luego se decide a que bloque irá. \nSiempre dependiendo de si hay una cola única, los bloques son del tamaño correcto o si ya el proceso estaba esperando en un sistema en el cual existe una cola por bloque.\n\nEl particionado fijo genera fragmentación interna (desperdicio de memoria dentro de una partición) y que el proceso se deba adaptar a un tamaño arbitrario de memoria."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona el particionado dinámico? ¿Qué inconveniente tiene?",
+        "back_content": "Este tipo de particionado asigna directamente la cantidad de memoria necesaria exacta para el proceso. De esta forma, desaparece la fragmentación interna.\n\nSu principal inconveniente es la fragmentación externa (desaprovechamiento de memoria resultante de huecos entre espacios asignados a procesos)"
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿De qué 2 formas se mitiga la fragmentación externa?",
+        "back_content": "Se mitiga de dos formas:\n\nA través de la compactación, proceso en el cuál la memoria se reorganiza para juntar a los procesos en memoria. Esto es muy costoso ya que implica mover muchos datos en memoria.\n\nA través de algoritmos de asingación en particionado dinámico, que minimizan los espacios vacios entre procesos."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué alogritmos de asignación de memoria en particionado dinámico existen? ¿Cuál es el mejor?",
+        "back_content": "- Best-Fit: Se elige el bloque que acomoda con menor espacio sobrante a un proceso. Resulta ineficiente debido a que deja espacios demasiado pequeños.\n-First-Fit: Asigna el primer bloque disponible y suficiente. Es el mejor y más fácil de implementar.\n- Next-Fit: Asigna el primer bloque disponible, empezando por la dirección del ultimo bloque asignado. Es ligeramente peor que First-Fit ya que tiende a romper los bloques grandes del final de la memoria."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el sistema de compañeros o Buddy System? ¿Cómo funciona?",
+        "back_content": "Es una técnica de particionado que reduce la fragmentación interna del particionado fijo y el overhead de compactación en particionado dinámico.\n\nFunciona dividiendo y fusionando bloques en mitades de manera suscesiva hasta lograr la menor cantidad de fragmentación interna."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el direccionamiento Físico, Lógico y Relativo? ¿Qué ejemplo se podría dar de un direccionamiento Lógico pero no Relativo?",
+        "back_content": "El Direccionamiento Físico es la dirección real dentro de la memoria.\n\nEl Direccionamiento Lógico es aquel que es independiente de la ubicación física.\n\nEl Direccionamiento Relativo es aquel direccionamiento lógico que se define en relación a una dirección base, en vezde una ubicación absoluta en memoria. Es decir, una operación de suma.\n\nPor ejemplo, una dirección lógica no relativa podría ser la de un sistema de paginación, ya que incluye productos en la fórmula de direccionamiento debido a la influencia de cada página."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se implementaría un esquema de direccionamiento relativo seguro en, por ejemplo, un sistema de particionado?",
+        "back_content": "Se implementa mediante 2 registros:\n\nRegistro Base (Base Register), que contiene la dirección inicial del proceso.\n\nRegistro Límite (Bound Register), que contiene el límite superior de memoria accesible para el proceso. Este registro permite forzar la seguridad dentro del sistema."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona la Paginación?",
+        "back_content": "Divide la memoria en marcos de páginas y los procesos en páginas, asignando entonces marcos a páginas."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué problema soluciona la paginación?",
+        "back_content": "Limita cualquier forma de fragmentación a solo un desaprovechamiento mínimo: el del último marco de un proceso o segmento de este."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es la tabla de paginación?",
+        "back_content": "Es una estructura que mapea cada número de página lógica con su marco en memoria física."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué usar tamaños de página en potencias de 2 simplifica el direccionamiento?",
+        "back_content": "Porque de esta forma se puede obtener la dirección relativa de la dirección lógica, simplemente concatenando los digitos binarios."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se traduce una dirección lógica a su dirección física en un sistema con paginación?",
+        "back_content": "Se busca el número de página, se obtiene el marco físico y se suma el offset dentro de la página a la dirección base de donde se encuentra el marco."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona la segmentación? ¿Para qué se utiliza?",
+        "back_content": "Funciona dividiendo un proceso en segmentos lógicos de tamaños diferentes, de manera parecida la paginación pero transparente al usuario. Resulta en direcciones lógicas.\n\nSe utiliza para modularizar programas según permisos, privilegios, acciones y funcionalidad."
+    },
+    {
+        "tags": ["Clase 5: Manejo de Memoria, Paginación y Segmentación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es un buffer overflow? ¿Por qué es peligroso?",
+        "back_content": "Un buffer overflow es un error que ocurre cuando un programa escribe más datos de los que admite un buffer, sobreescribiendo memoria adyacente.\n\nEs peligroso ya que permite que un atacante sobreescriba direcciones de memoria clave o ejecute código malicioso."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es la Memoria Virtual?",
+        "back_content": "Es un esquema de gestión de memoria en el cual los procesos pueden utilizar más memoria que la disponible físicamente, almacenando parte de estos en el disco."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿qué ventajas tiene la memoria virtual?",
+        "back_content": "Permite ejecutar programas más grandes y tener más cantidad de programas simultáneamente en memoria."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se le dice al fenómeno en el cuál la página que se necesita de un proceso no está en memoria?",
+        "back_content": "Cuando ocurre esto, se dice que ocurre un fallo de página, resultando en que el Sistema Operativo tiene que ir a buscarla al disco."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es la Hiperpaginación o Thrashing? ¿A qué se debe?",
+        "back_content": "Es un problema que se manifiesta en sistemas que usan memoria virtual en el cual el OS pasa más tiempo intercambiando páginas entre disco y la RAM que ejecutando procesos.\n\nSe debe a que en ocasiones no se establecen buenas políticas de reemplazo de páginas, por lo que se reemplazan las incorrectas. (Ej: se reemplaza una que se necesitará en breve)"
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se evita el Thrashing o Hiperpaginación?",
+        "back_content": "Se evita administrando la cantidad de marcos a cada proceso, utilizando buenas políticas y respetando lo que estipula el principio de cercanía."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el Principio de Cercanía?",
+        "back_content": "Es el fenómeno en el cual un programa tiende a reutilizar datos e instrucciones cercanas en tiempo o en espacio."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se implementa la memoria virtual junto con la paginación? ¿Qué indicadores se agregan a la Tabla de Paginación en memoria virtual?",
+        "back_content": "Se permite solo algúnas páginas por proceso en memoria, cargando más a medida que sean necesarias.\n\nSe agrega el indicador de si está presente en memoria o no una página y de si fue modificada (para saber si tiene que ser escrita antes de ser reemplazada)"
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se puede optimizar el almacenamiento de la Tabla de Paginación?",
+        "back_content": "Usando Tablas de Paginación Anidadas o multi nivel, permitiendo guardar algunas en el disco incluso o usando Tablas de Paginación Invertidas, en donde los marcos están asociados a páginas mediante hashes y políticas de encadenamiento."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el Translation Lookaside Buffer (TLB) o Buffer de Traducción Adelantada?",
+        "back_content": "Es una memoria caché dentro del CPU que almacena las traducciones recientes de direcciones lógicas a direcciones físicas (entradas de la tabla de paginación), acelerando el acceso a memoria."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué ocurre si una dirección no está en la TLB?",
+        "back_content": "Se produce un TLB Miss y por lo tanto se busca la direccion desde la tabla de paginación, que puede estar en el caché de memoria, la memoria o el disco para luego actualizar la TLB."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se organiza el TLB?",
+        "back_content": "Se organiza mediante mapeo asociativo, lo que permite consultar varias entradas al mismo tiempo."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué factores se deben considerar al elegir el tamaño de la página?",
+        "back_content": "Si la página es muy grande, hay menos entradas en la tabla de paginación pero más fragmentación interna.\n\nSi la página es muy pequeña, ocurre lo contrario.\n\nLa idea es buscar un equilibrio."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se combina la paginación con la segmentación?¿Qué ventajas tiene esta combinación?",
+        "back_content": "Se divide primero el programa en segmentos lógicos y luego esos segmentos lógicos son los que se dividen en páginas. De esta forma, se aprovehca la eficiencia de la paginación y la modularidad de la segmentación."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se traduce una dirección en un sistema combinado (segmentación + paginación)?",
+        "back_content": "Se obtiene el segmento de la dirección lógica, luego eso se busca en la tabla de paginación del segmento, para luego obtener el marco correspondiente."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las políticas dentro del manejo de memoria?",
+        "back_content": "Políticas de Lectura, Políticas de Ubicación, Políticas de Reemplazo y Políticas de Vaciado."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué definen las políticas de lecutra?¿Qué alternativas existen?",
+        "back_content": "Las políticas de lectura definen cuando se deberían cargar las páginas en memoria.\n\nExiste la carga bajo demanda, donde se cargan solo las páginas que se van necesitando (lo cual introduce muchos fallos de página al comienzo)\n\nY existe la precarga de páginas, donde se cargan páginas cercanas en disco para reducir futuros fallos a costa de no estar seguro si se necesitarán o no."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué son las políticas de Ubicación?",
+        "back_content": "Las políticas de Ubicación definen donde se ubicarán los datos cargados en la memoria. En sistemas de paginación esto no es relevante ya que se independiza el sistema de la ubicación de manera intrínseca."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué define una política de reemplazo?",
+        "back_content": "Define el algoritmo que se seguirá para determinar qué paginas reemplazar en caso de que la memoria principal se llene para evitar reemplazar páginas que capaz también se necesitarán usar en el futuro."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿A qué se refiere cuando se habla del *\"Algoritmo de Reemplazo Óptimo\"*?",
+        "back_content": "Es un algoritmo inmposible que requiere conocer el futuro y que se usa de referencia."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el algoritmo de reemplazo *\"Menos Usado Recientemente\"* o *\"Least Frequently Used\"* (LFU)?¿Que ventajas o desventajas tiene?",
+        "back_content": "Consiste en reemplazar la página que hace más tiempo que NO se ha ejecutado.\n\nSi bien tiene buen rendimiento en términos de evitar fallos de página, suele tener mucho overhead ya que supone llevar registro temporal de los accesos de todas las páginas en memoria."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el algoritmo de reemplazo *\"FIFO\"* (First-In, First-Out)? ¿Qué ventajas y desventajas tiene?",
+        "back_content": "Reemplaza la página más antigua, mediante una fácil implementación de un buffer ciruclar.\n\nResulta inútil ya que algo antiguo puede, justamente, haber estado mucho tiempo por uso frecuente."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el algoritmo de reemplazo de Reloj o Clock?¿Que ventajas y desventajas tiene?",
+        "back_content": "Es una versión mejorada de FIFO en la cual solo se prefiere reemplazar una página que desde el último reemplazo no haya sido utilizada. Además se le puede agregar un bit de modificación, donde el orden de prioridad sería: Reemplazar primero la página no modificada ni utilizada, luego la que solo fue modificada, luego la que fue solo usada y por último la que fue tanto usada como modificada.\n\nEs menos preciso que LRU aunque más eficiente, y además reduce reemplazos innecesarios (mejor que FIFO)"
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el Page Buffering o Almacenamiento Intermedio de Páginas? ¿Para qué sirve?",
+        "back_content": "Es la técnica en la cual se reserva un espacio en memoria para que simule ser el disco en donde se almacenan tanto páginas sin modificar como modificadas.\n\nSirve para que si una página que está en el buffer como reemplazada es necesitada, no se tenga que ir hasta el disco a buscarla. Además, al guardar las modificadas, se pueden escribir al disco en conjunto para minimizar operaciones E/S."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el conjunto residente de un proceso?",
+        "back_content": "Es el número de páginas que un proceso puede tener en memoria en un momento dado"
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuántas páginas por proceso debería haber en memoria? es decir, ¿Qué tan grande debería ser el conjunto residente?",
+        "back_content": "Si el proceso tiene pocas páginas, entran muchos procesos pero la tasa de fallos incrementa.\n\nSi el proceos tiene demasiadas páginas, entran pocos procesos en memoria y la tasa de fallos se reduce cada vez menos."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuales y qué son las políticas de Asignación de Marcos? ¿Qué diferencias hay entre los ámbitos de reemplazo?",
+        "back_content": "Las políticas de asignación de marcos dictamina como se maneja la cantidad de páginas asignadas por proceso. Puede ser fija o variable.\n\nEl ámbito define que marcos cambiarán: si se reemplazarán páginas siempre que hayan sido del mismo proceso (ámbito local) o si se podrá también reemplazar páginas de otros procesos (ámbito global, incompatible con política fija)"
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es la política de Vaciado? ¿Cuáles existen?",
+        "back_content": "Es la política que indica cuando escribir en el disco una página que ha sido modificada.\n\nPuede ser a demanda o de vaciado previo, aunque la mejor manera es mediante la integración con el Page Buffering."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el Control de Carga?¿Cómo se halla un punto medio para el control de la carga de procesos?",
+        "back_content": "El control de carga explora cuántos procesos pueden estar en memoria al mismo tiempo, es decir, los procesos residentes (sería como el recíproco de conjunto residente).\n\nDemasiados procesos implica menos marcos para cada uno. Muy pocos y empeora la multiprogramación haciendo que el CPU pueda estar en standby mucho tiempo.\n\nSe halla un punto medio mediante el monitoreo de ciertas variables como la tasa en la que ocurren fallos de página (o su comparación con la tasa en la que un fallo de página se atiende), o el uso del disco (se intenta que se llegue al 50%)."
+    },
+    {
+        "tags": ["Clase 6: Memoria Virtual, Paginación, Políticas y Tablas de Página"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se decide cuál proceso es retirado de la memoria principal (swap out)?",
+        "back_content": "Se decide comparando su prioridad, que tan grande es (tanto grandes como chicos tienen ventajas para sacarlos) o que tanto tiempo estuvo el proceso inactivo o cuanto falta para que complete la ejecución. Por último, se puede decidir según si el proceso ha tenido muchos fallos de página."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es un Planificador o Scheduler?¿En qué niveles se divide?",
+        "back_content": "Es el sistema que determina qué proceso será el próximo en utilizar el poder de cómputo del CPU.\nSe divide en la planificación a corto, mediano y largo plazo."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son los requerimientos para implementar un planificador de calidad?",
+        "back_content": "Debe ser justo (prevenir la inanición de procesos), ligero y con poco overhead y además ser eficiente para el procesador.\n\nEs deseable también que admita sistemas de prioritización."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es el propósito de la Planificación a Largo Plazo?",
+        "back_content": "Controlar cuándo los procesos se activan (es decir, se crean) y cuántos pueden estar activos simultáneamente"
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo decide el planificador de largo plazo cuál proceso activar en caso de conflicto?",
+        "back_content": "Lo decide mediante FIFOs y comparación de prioridades, disponibilidad de recursos o tiempos de ejecución."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es el propósito de la Planificación a Mediano Plazo?",
+        "back_content": "Suspender y reanudar procesos, moviéndolos entre la memoria principal y el disco."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué la planificación a mediano plazo está relacionada con la gestión de memoria?",
+        "back_content": "Porque decide qué procesos permanecen en memoria y cuáles se intercambian, afectando el rendimiento del CPU ya que este solo ejecuta procesos en memoria."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es el propósito del Planificador de Corto Plazo o Dispatcher? ¿En qué momento ocurren las decisiones del Dispatcher?",
+        "back_content": "Selecciona realmente cuál proceso en memoria se ejecutará en el CPU en cada momento.\n\nEl Dispatcher actua tras interrupciones, señales o llamadas al sistema."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué cuatro enfoques existen para formar los criterios que debe tener en cuenta un planificador?¿A qué se hace énfasis cuando se habla de que un criterio esté relacionado con el rendimiento?",
+        "back_content": "Se siguen:\n- Criterios Orientados al Usuario, relacionados o no con el rendimiento.\n- Criterios Orientados al Sistema, relacionados o no con el rendimiento.\n\nUn criterio está relacionado con el rendimiento generalmente cuando es de naturaleza cuantitativa."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué significa que un criterio esté orientado al Usuario?¿Qué criterios comprenden esta denominación? (ya sea relacionados al rendimiento o no)",
+        "back_content": "Un criterio está orientado al usuario cuando se enfoca en que el usuario experminete una mayor sensación de que el sistema es dinámico y responsivo.\n\nPor ejemplo, **criterios orientados al usuario relacionados con el rendimiento** pueden ser:\n- Tiempo de Retorno o Turnaround Time (tiempo de finalización de un proceso)\n- Tiempo de Respuesta o Response Time (tiempo de respuesta del sistema a una solicitud de usuario)\n- Plazos límites o Deadlines (Plazos en los que un proceso deben terminar)\n\nPor otro lado, un **criterio orientado al usuario pero no relacionado con el rendimiento** puede ser la consistencia por ejemplo (que un proceso tarde lo mismo sin importar la carga del sistema)"
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué significa que un criterio esté orientado al Sistema?¿Qué criterios comprenden esta denominación? (ya sea relacionados al rendimiento o no)",
+        "back_content": "Un criterio está orientado al sistema cuando busca mejorar la eficiencia en el uso de recursos del sistema, sin importar de manera particular la experiencia del usuario.\n\nLos **criterios orientados al sistema y relacionados al rendimiento** pueden ser:\n- Productividad o Throughput (Velocidad en la que se completan procesos)\n- Utilización (Porcentaje de tiempo donde el CPU está en uso)\nPor otro lado, aquellos **criterios orientados al sistema y NO relacionados al rendimiento**, pueden ser:\n- Equitatividad o Fairness (Repartir el uso de CPU equitativamente, al menos de base)\n- Forzar Prioridades (Respetar la prioridad de un proceso)\n- Balanceo de Recursos (Favorecer procesos que usan recursos poco ocupados)"
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es la manera más básica de implementar un planificador?¿Qué problemas estructurales tiene?",
+        "back_content": "La manera más básica es simplemente disponer de un sistema de colas, una por cada prioridad. De esta forma, el CPU tomará procesos en orden.\n\nEsto implica que habrá situaciones donde un proceso de baja prioridad nunca sea procesado por el CPU, es decir, que sufrirá inanición."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué variables se pueden utilizar para describir una política de planificación?¿Qué significa que una política sea expropiativa?",
+        "back_content": "Se utiliza el tiempo de espera (cuánto tiempo lleva esperando un proceso), el tiempo de ejecución (cuánto tiempo lleva ejecutándose un proceso) y el tiempo de servicio (cuánto tiempo le queda a un proceso para terminar sumado al tiempo que lleva ejecutándose).\nUna política es expropiativa cuando el planificador puede quitarle el CPU a un proceso en cualquier momento."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué políticas de planificación existe? Nombrarlas.",
+        "back_content": "- First-Come, First-Served (FCFS)\n- Round Robin y Round Robin Virtual\n- Shortest Process Next y Shortest Remaining Time\n- Highest Response Ratio Next (HRRN)\n- Feedback Scheduling\n- Fair-Share Scheduling"
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la política de planificación First-Come, First-Served (FCFS) (FIFO)? ¿A qué procesos favorece? ¿Qué características tiene?",
+        "back_content": "Consiste en atender a los procesos en orden de llegada, por lo que favorece a los que llevan esperando más tiempo (tienen un tiempo de espera máximo).\n\nCaracterísticas:\n- No es expropiativa\n- No es una política enfocada en el rendimiento\n- Tiempo de Respuesta variable dependiendo de la cantidad de procesos.\n- Overhead mínimo\n- Penalización a procesos pequeños o con gran carga de operaciones de E/S\n- No es posible la inanición"
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la política de planificación Round Robin? ¿Qué mejora implementa su versión virtual? ¿Qué características tiene?",
+        "back_content": "Consiste en un orden de llegada con límite de tiempo (por cuantos), luego se expropia el proceso.\n\nSu versión virtual incluye una cola con prioridad mayor donde van procesos con mucha carga en operaciones en E/S, para que haya más justicia para este tipo de procesos que no usan mucho el CPU.\n\nSus características son:\n- Expropiante solo en periodos fijos de tiempo.\n- Su rendimiento empeora si el cuanto de tiempo es pequeño.\n- Buen tiempo de respuesta.\n- Poco overhead.\n- No es posible la inanición."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funcionan las políticas de planificación \"Primero el Proceso más Corto\" o \"Shortest Process Next\" y Primero el Menor Tiempo Restante (SRT)? ¿Qué características tienen?",
+        "back_content": "SPN elige el proceso cuya duración (tiempo de servicio) es más corta. Este tiempo se debe estimar o ser provisto por el programador de la aplicación. SRT calcula el tiempo restante, llevando el recuento de el tiempo en ejecución y restándoselo al tiempo de servicio.\n\nCaracterísticas:\n- SPN no es expropiante, SRT sí lo es cuando llega un proceso nuevo.\n- Rendimiento es mayor ya que hay más velocidad de completitud de procesos.\n- Tiempo de respuesta es bueno, aunque quizás SRT premia a procesos grandes cerca de completarse.\n- Overhead mayor ya que se debe calcular tiempos de servicio o registrar tiempos de ejecución.\n- Es posible que procesos grandes sufran inanición."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona la política de planificación de \"Primero el de mejor Tasa de Respuesta\" o Highest Response Ratio Next (HRRT)? ¿Qué características tiene?",
+        "back_content": "Funciona similar a SPN, pero permite que los procesos grandes no sean penalizados imposibilitando la inanición, introduciencdo en la función de selección al tiempo de espera ((tw+ts)/(ts)).\n\nDe esta forma, se logra buen rendimiento, tiempo de respuesta, buen balance y sin necesidad de ser expropiante, a costa de un overhead que puede ser alto."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la política de planificación Realimentada o de Feedback? ¿Qué características tiene?",
+        "back_content": "Consiste en una planificación parecida a Round Robin y SPN pero sin calcular tiempos de servicio. En cambio, usa el tiempo de ejecución (técnicamente) ya que va reduciendo la prioridad de un proceso cada vez que se le da tiempo de procesamiento hasta la mínima posible.\n\nEs expropiante, no enfatiza el rendimiento ni el tiempo de respuesta. Su overhead puede ser alto y prioriza procesos con carga de E/S, aunque es posible la inanición en procesos antiguos."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la política de planificación Justa o Fair-Share (FSS)? ¿Para qué tipo de sistemas es más adecuada esta política?",
+        "back_content": "Planifica a que usuario o grupo de estos se le dará tiempo de CPU, luego a que proceso. Opera a nivel proceso como feedback, pero hace menos prioritario un porceso no solo en caso de que este proceso use el CPU, sino también si el grupo al que pertence excedio el límite acumulado.\n\nEs adecuada para sistemas de múltiples usuarios."
+    },
+    {
+        "tags": ["Clase 7: Planificación y Políticas de Planificación"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el tiempo de Respuesta? ¿Por qué resulta costoso mejorar el tiempo de respuesta en un proceso? ¿Cómo se clasifica para sistemas interactivos?",
+        "back_content": "Es el tiempo en el que un sistema reacciona a una entrada de usuario.\n\nResulta más costoso debido a que o implica que otro procesos empeorará su propio tiempo de respuesta, o implica que se necesitará mayor poder de cómputo.\n\nEn sistemas interactivos, se clasifica según si la repsuesta fue del usuario (Tiempo en el que un usuario vuelve a solicitar luego de una respuesta) o si la respuesta fue del sistema (Tiempo en que el sistema responde la interacción del usuario)."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 2,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué es difícil hablar de un manejo general de dispositivos de E/S?",
+        "back_content": "Debido a que existen cientos de dispositivos con usos  e implementación distintas."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las tres categorías de dispositivos de E/S?",
+        "back_content": "- Dispositivos Legibles por el Humano (Teclados, impresoras...)\n- Dispositivos Legibles por la Máquina (Discos, USB)\n- Dispositivos de Comunicación (NICs, WiFi)"
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué varía cada categoria de dispositivos de E/S (legibles para le usuario, máquina o dispositivos de comunicación)?",
+        "back_content": "Cada categoría varía en su velocidad (tasa de datos), aplicación, complejidad de control, unidad de transferencia (por ejemplo, si viajan bits, caracteres, etc.), representación de datos (como se muestran o estructuran los datos) y condiciones de error."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el DMA? ¿Qué pasos involucra una operación por DMA? ¿Qué problemas puede generar el uso de DMA y como se mitigan?",
+        "back_content": "El DMA es un módulo de Hardware que tiene acceso directo a la memoria\n\nUna operación consiste en los siguientes pasos:\n1. CPU le detalla al DMA qué tiene que hacer (dispositivo, operación, direcciones, cantidades).\n2. CPU continúa procesando mientras DMA transfiere.\n3. DMA interrumpe indicando que culminó la transferencia.\n\nUn problema es que el tráfico generado por DMA puede embotellar al bus de sistema, por lo que existen buses específicos para el DMA o incluso se conectan directamente los dispositivos a este."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué requerimientos debe asegurar el diseño de un OS con respecto al manejo de dispositivos de E/S?",
+        "back_content": "Debe asegurar la eficiencia (Las operaciones de E/S son lentas intrínsecamente entonces esto tiene sus límites) y debe además asegurar la generalidad (que de manera modular uno se abstraiga de los distintos tipos de dispositivos mediante interfaces y capas uniformes y generales)"
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las tres capas del manejo de E/S?",
+        "back_content": "- **Capa de E/S Lógica**: Se encarga de la interfaz con el usuario. Debe saber como tratar solicitudes de lecutra, escritura, etc.\n- **Capa de E/S a DSispositivo**: Las solicitudes se traducen en información del canal, comandos y ordenes para el controlador.\n- **Capa de Control y Planificación**: Gestiona la cola, planificación y control de operaciones. Maneja interrupciones, el hardware y el monitoreo."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las tres capas en la estructura del almacenamiento secundario?",
+        "back_content": "Directorios, Sistema de Archivos y la Organización Física."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se clasifican a los dispositivos E/S según su orientación?",
+        "back_content": "Los dispositivos de E/S pueden manejar información orientada en bloques (Discos,  Pen-drives) u orientadas al flujo de datos (impresoras, mouse, NIC)"
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Por qué la transferencia de datos es ineficiente si es manejada por los procesos?",
+        "back_content": "Porque puede entorpecer la gestión de memoria y generar pérdida de datos o deadlocks, debido a la naturaleza dinámica de los procesos."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué mecanismo se usa para mejorar la eficiencia de las transferencias E/S? ¿Qué tipo existen de este mecanismo? ¿Qué límites tiene el uso de este mecanismo?",
+        "back_content": "El mecanismo se llama I/O Buffering.\n\nExiste:\n\n- Buffering Simple: Se usa una página como buffer en memoria del OS\n- Buffering Doble: Usa dos páginas o regiones (escritura y lectura)\n- Buffering Circular: Para buffers con más de dos regiones, cuando se incrementa la necesidad de transferencia por ráfagas.\n\nSi la demanda de uso de I/O es demasiada, los bufferes no dan abasto y se termina teniendo que recurrir a la planificación discriminada de procesos que saturen a los dispositivos I/O."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué etapas y tiempos representa una operación de lectura/escritura en un disco duro (HDD)?",
+        "back_content": "**Tiempo de Acceso**: Es el tiempo en el que se accede a la dirección de memoria, conformado por el **tiempo de búsqueda** (movimiento del brazo a la pista correcta) y **latencia de rotación** (espera a que ek disco gire hasta la posición correcta).\n\n**Tiempo de Transferencia** tiempo en el que se copian los datos del disco a la memoria. Suele comprenderse como el tiempo en el que se rota el cilindro hasta la posición de finalización del bloque."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué representa la fragmentación en un HDD? ¿Cómo se intenta mitigar sus efectos?",
+        "back_content": "Un HDD con información dispersa implicará mucho mayores tiempos de acceso, debido al tiempo que se desperdicia en operaciones mecánicas.\n\nSe mitigan sus efectos mediante el uso de políticas de planificación de disco que reduzcan la fragmentación resultante y que tengan algoritmos de recorrido que minimizen los tiempos de acceso."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué tres políticas de planificación que no consideran la posición del brazo de disco existen? ¿Cuáles son sus características?",
+        "back_content": "Existen las políticas FIFO, PRI y LIFO.\n\nFIFO: Atiende solicitudes en orden de llegada, por lo que si los datos están dispersos puede ser ineficiente.\nPRI: Atiende según prioridad. No mejora rendimiento, sino que implementa de manera nativa a las prioridades.\nLIFO: Atiende la solicitud más reciente. Por principio de cercanía a veces funciona pero hay riesgo de inanición."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuáles son las políticas que consideran la posición del brazo de disco? Nombralas.",
+        "back_content": "- Más Cercano Primero (Shortest-Service-Time-First, SSTF)\n- SCAN\n- Scan Circular (C-SCAN)\n- FSCAN o n-step F-SCAN"
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste y qué características tiene la política de planificación de disco \"Más Cercano Primero\" o Shortest-Service-Time-First?",
+        "back_content": "Consiste en atender la operación de E/S más cercana a la posición del brazo. Rinde mejor que FIFO a costa de que la inanición es posible."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste y qué características tiene la política de planificación de disco \"SCAN\"?",
+        "back_content": "El brazo se mueve en una dirección y va atendiendo las operaciones que estén alojadas en las pistas que vaya encontrando a su paso. Luego vuelve y en el camino de vuelta hace lo mismo.\n\nDe esta forma, esta política evita la inanición, aunque es ligeramente injusta para solicitudes que lleguen en el momento equivocado."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste y qué características tiene la política de planificación de disco \"C-SCAN\"?",
+        "back_content": "Es una variación de SCAN en la cual el brazo no regresa atendiendo solicitudes, sino que regresa al principio del disco sin atenderlas, para luego empezar de nuevo el recorrido de ida. De esta forma, se reduce un poco la injusticia."
+    },
+    {
+        "tags": ["Clase 8: Manejo de E/S y Planificación de Dispositivos"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste y qué características tiene la política de planificación de disco \"FSCAN y n-step FSCAN?",
+        "back_content": "Son variaciones de SCAN, donde cada vez que el brazo completa un recorrido se intercambia la cola original por otra que se estuvo acumulando mientras el recorrido ocurría. Es FSCAN cuando son 2 colas y n-step FSCAN cuando son más."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué políticas de planificación de disco fueron desarrolladas para Linux?",
+        "back_content": "Políticas de planificación de tipo:\n- Ascensor\n- de Plazo Límite\n- con Anticipación\n- Planificador Completamente Justo (CFQ)\n- NOOP"
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el planificador del Ascensor en Linux? ¿Qué problema tiene?",
+        "back_content": "Es una política SCAN mejorada, que permite solicitudes coladas por cercanía física en la fila de peticiones y permite además la fusión de peticiones adyacentes en espacio. Puede generar inanición si las peticiones acceden a bloques alejados y no diferencia entre operaciones de lectura y escritura."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la mejora del Ascensor, el Planificador de Plazo Límite (Deadline)?",
+        "back_content": "Es una mejora que implementa a la política del Ascensor tal cual, con el agregado de 2 colas FIFO cronometradas (lectura y escritura). Cuando la política del ascensor empieza a hacer esperar demasiado a alguna solicitud ya que pasa el tiempo límite de espera, se atiende la solicitud inmediatamente."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste la mejora del Planificador de disco de Tiempo Límite, el Planificador con Anticipación?",
+        "back_content": "Consiste en que el planificador al terminar una operación en un lugar, espera un tiempo por si, por principio de cercanía, se solicita una operación cercana."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el Planificador de Disco Completamente Justo (CFQ)?",
+        "back_content": "Consiste en que cada proceso tiene una cola I/O con un tiempo de procesamiento cada una. Cuando se completa una transferencia, se espera por anticipación si aparece otra. Las colas son iteradas por Round Robin, es decir, como una FIFO con cuantos de tiempo a nivel expropiativo."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el planificador de disco NOOP?",
+        "back_content": "Cuando el dispositivo en sí maneja las peticiones (o el dispositivo no es un disco), entonces el OS solo mete peticiones en una FIFO para permitir que el dispositivo las maneje, como mucho haciéndole el favor de fusionar las de características similares."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué ventajas tiene un Dispositivo de Estado Sólido (SSD)? ¿Qué desventaja tiene?",
+        "back_content": "Son más rápidos, más silenciosos, resistentes y consumen menos, aunque tienen menor vida útil por el desgaste de las celdas aislantes al sobreescribir."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es un esquema RAID? ¿Qué se intenta lograr con esta tecnología?",
+        "back_content": "Un esquema RAID es una matriz o grupo redundante de discos independientes (Redundant Array of Independent Disks), conectados de manera tal para que los datos se distribuyan o se repliquen bajo un algoritmo específico, logrando mayor integridad, toleracia ante fallos o tasa de trasnferencia."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué hace el RAID 0?",
+        "back_content": "El RAID 0 divide los datos en strips de a bloques, que se distribuyen en cada disco. Mejoran las velocidades de lectura ya que un conjunto de datos puede ser leído por dos discos a la vez. Al no tener redundancia alguna, usar más discos es peor ya que hay menos fiabilidad."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué ofrece RAID 1?",
+        "back_content": "RAID 1 genera una copia exacta de un conjunto de datos de un disco en otro (u otros). De esta forma, se agrega redundancia a costa de capacidad. Además, la velocidad de lectura se incrementa por la cantidad de discos."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste RAID 2? ¿Por qué no se emplea?",
+        "back_content": "Distribuye los datos entrelazados a nivel de bit (bit-striping), mediante un código de error también distribuido a nivel de bit, calculable por el Código de Hamming y almacenados en otros discos. Necesita que haya sincronización de los brazos de discos para calcular los datos, y solo se puede capturar una fracción del almacenamiento disponible (Para el código de Hamming de 4/7, solo 4/7 del almacenamiento, por ejemplo)"
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el RAID 3?¿Qué características tiene?",
+        "back_content": "Implementa RAID 0 a nivel de byte (byte-striping) en todos los discos excepto uno, que almacena la paridad, también de a byte, de forma tal que por cada bloque de paridad, este se relacione con cada bloque en la misma dirección de cada disco.\n\nEsto significa que la escritura debe actualizar la paridad, y que un disco entero se puede perder sin perder la información. Logra buenas tasas de transferencia a costa de una sola operación I/O a la vez debido al stripping."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste RAID 4?",
+        "back_content": "Es parecido a RAID 3 pero almacena de a bloques (block-striping), por lo que aumenta la cantidad de solicitudes I/O concurrentes a costa de una menor tasa de transferencia."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste RAID 5?",
+        "back_content": "Es un sistema con datos destribuidos a nivel de bloques (block-striping) que reparte de manera intercalada la paridad entre cada disco. De esta forma, se aprecia una especie de \"bloques de paridad\" en escalera, mejorando tiempos de escritura con la tolerancia a fallos de RAID 4.\n\nPermite que un disco falle y la recuperación es más amena con respecto a RAID 4."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿En qué consiste el RAID 6?",
+        "back_content": "Es un RAID 5 distribuido de a bloques en el que ocurre una ampliación en la cantidad de bloques de paridad, (2 bloques independientes por disco, es decir, 2 bloques por franja o división).\n\nPermite hasta 2 discos fallidos, con una capacidad de n-2 discos.\n\nUsa dos métodos de paridad: generalmente un polinomio junto con la paridad de a byte tradicional XOR."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el caché de disco? ¿Cómo trabaja? ¿Qué es en este contexto la política de reemplazo?",
+        "back_content": "Es una región de la RAM que intenta predecir lo que esta necesitará del disco.\n\nSi la solicitud se encontraba en el caché, se produce un HIT: se transferirá la dirección a un espacio compartido o la información como tal.\n\nSi no, se produce un Miss y se tiene que leer la información del disco. En este caso, entra a relucir la política de reemplazo, que determinará qué se reemplazará de la RAM por esta nueva petición, basándose en el principio de cercanía."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona la política de reemplazo del caché de disco \"Menos Usado Recientemente\" o \"Least Recently Used\" (LRU)?",
+        "back_content": "Es una pila con punteros hacia los bloques del caché que se actualiza según el uso.\n\nCada vez que se usa un bloque, el puntero va hacia el principio de la pila. El último elemento de la pila es el que será reemplazado."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo funciona la política de reemplazo del caché de disco \\\"Menos Usado Frecuentemente\\\" o \\\"Least Frequently Used\\\" (LFU)? ¿Qué problema tiene?",
+        "back_content": "Funciona llevando un contador a las veces que un bloque dentro del caché fue referenciado. Se reemplaza el bloque que menos referencias tenga.\n\nComo problema principal, es que no se adapta tan bien al principio de cercanía, ya que muchas referencias puede significar que el bloque no se usará más, y pocas referencias puede significar que las solicitudes están por ocurrir."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se evita el problema de LFU?¿Qué problema tuvo este nuevo abordaje y cómo se mitigó?",
+        "back_content": "Se evita mediante la fusión con LRU, haciendo una pila de \"bloques nuevos\" y otra de \"bloqes viejos\". El contador de LFU solo aumenta en los bloques viejos (en nuevos es 1). De esta forma, el principio de cercanía se respeta más.\n\nSin embargo, esto tenía un problema: un bloque nuevo al transicionar a viejo estaba en 1, por lo que sería reemplazado sí o sí. Para solucionarlo, se creó una zona intermedia que no permitía reemplazos pero si incrementos en el contador de referencias."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué operaciones principales permite un sistema de archivos?",
+        "back_content": "Permite rear, borrar, abrir, cerrar, leer y escribir archivos."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué entidades existen en un sistema de archivos?",
+        "back_content": "- Campos (Fields): Contienen un valor nombre y tamaño (opcional).\n- Registro (Record): Contienen campos relacionados, como unidad.\n- Archivo (File): Contiene registros unificados, con nombre y operaciones disponibles para hacerles.\n- Base de Datos: Conjunto de datos relacionados de manera explícita. Puede ser también un conjunto de archivos."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué objetivos se buscan para una buena organización o estructura lógica de los registros en los archivos?",
+        "back_content": "Que sea de veloz acceso, fácil de actualizar y mantener, que economice el espacio y que sea confiable."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué maneras existen para manejar la estructura lógica de los registros dentro de un archivo?",
+        "back_content": "Pilas, Archivos Secuenciales, Archivos Secuenciales Indexados, Archivos Indexados o Archivos con Hashing"
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone la manera de organizar lógicamente a los registros en archivos mediante pilas? ¿Cuándo se utiliza?",
+        "back_content": "Que los registros se guardan en orden de llegada, simplemente cumpliendo con un esquema de almacenamiento crudo. Cada registro puede tener distintos campos, de distintos tamaños.\n\nDebido a que no tiene un esquema ordenado, se usa cuando los datos no están procesados o cuando no es fácil ordenarlos desde el vamos, lo cual no es tan común."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone la manera de organizar lógicamente a los registros en archivos secuenciales? ¿Cuándo se utiliza? ¿Qué problema tiene para insertar nuevos registros?",
+        "back_content": "Supone registros de formato fijo (tamaño, tamaño de los campos y su orden). Al tener formato, solo es necesario almacenar valores y no los nombres de los campos. Uno de los campos de cada registro suele ser llamado un campo **clave**, el cual da un orden alfabético/numérico a los registros del archivo.\n\nSon de uso general (logs, config).\n\nComo las claves son ordenadas, insertar algo en el medio es contraproducente. Si se requiere, hay que almacenar temporalmente el dato a insertar en un archivo de transacción o log (no accesible fácilmente), para luego reorganizar todos los registros en un tiempo. Sino, se pueden usar listas enlazadas."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone la manera de organizar lógicamente a los registros en archivos secuenciales indexados?",
+        "back_content": "Es una mejora del archivo secuencial que añade un índice con accesos directos a ciertos registros mediante tablas de claves y direcciones (pueden anidarse). Además, los registros del archivo principal pueden contener punteros a registros desbordados, permitiendo insertar nuevos registros en un archivo de desbordamiento sin necesidad de reorganización inmediata (en contraposición a los secuenciales no indexados)."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone la manera de organizar lógicamente a los registros en archivos indexados? ¿Qué tipos de índices existen?",
+        "back_content": "Supone organizar los registros pudiendo accedar a ellos mediante varios índices, donde no solo se guarda su campo clave sino otros campos. Permita más flexibilidad a costa de requerir actualizar los índices al agregar registros. Se usa para sistemas de inventario, reservas, etc.\n\nExiste:\n**Índice Exhaustivo**: Debe asegurar que cada registro esté en él, pudiendo descartar la secuencialidad y la necesidad de que los tamaños de cada registro sean iguales.\n\n**Índice Parcial**: Solo almacena registros con un campo específico."
+    },
+    {
+        "tags": ["Clase 9: Planificación de Disco, RAID, Archivos y su Organización Lógica Interna"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué supone organizar lógicamente los registros en archivos mediante Hashing (Archivo Directo)?",
+        "back_content": "Supone acceso a los registro de forma rápida y directa, sin necesidad de una secuencia, mediante una función hash sobre la clave de cada registro.\n\nPuede incluir un archivo de desbordamiento en caso de colisión Hash (cuando dos claves generan la misma ubicación)"
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el Sistema de Gestión de Archivos? ¿Cómo se estructura?",
+        "back_content": "Es el sistema encargado de manejar archivos mediante herramientas y servicios para le usuario. Se estructura mediante capas (drivers, sistema básico, supervisor, etc.)"
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué debe garantizar un sistema de gestión de archivos?",
+        "back_content": "Datos válidos, buen desempeño, soporte de E/S amplio, apto para múltiples usuarios y una interfaz estándar."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué herramientas debería implementar un buen sistema de gestión de archivos?",
+        "back_content": "Debe implementar herramientas para crear, eliminar, mover, leer, escribir y modificar archivos, mediante accesos controlados, capacidad de reestructuración y de respaldo, además de la capacidad de identificación mediante nombres."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 3,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué son los Gestores de Dispositivos o Device Drivers?",
+        "back_content": "Son parte del Sistema Operativo y se encargan de comunicarse con el Hardware de dispositvos de E/S de manera directa y física, es la capa de nivel más bajo dentro de la estructura del Filesystem"
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cuál es la base de un Sistema de Archivos Básico (la capa de bajo nivel del Filesystem)? ¿Cómo es este sistema de archvios básico con respecto a los drivers?",
+        "back_content": "Debería manejar la información del usuario mediante bloques de datos (como y a dónde mover o buscarlos, mandarlos a buffers I/O).\nEste sistema es de mayor nivel ya que se abstrae del Hardware, aunque no de tan alto nivek ya que no distingue contenidos, ni distingue archivos (solo bloques de información)."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué gestiona el supervisor básico de E/S? ¿Entre qué capas está en un Filesystem completo?",
+        "back_content": "Gestiona la inicialización y finalización de cualquier archivo y la coordinación a nivel de archivo. Los maneja (planificación) además los monitorea mediante estructuras de control.\nEstá entre el Sistema de Archivos Básico y menor que la parte Lógica de E/S"
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué gestiona la E/S lógica en un Filesystem? ¿Entre qué capas está en un Filesystem completo?",
+        "back_content": "Gestiona los contenidos de los archivos a nivel registros de manera general y abstrae la ubicación física de estos. Mantiene datos básicos de los archivos.\nEstá entre la capa de supervisor y la del método de acceso."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué gestiona la capa de método de acceso dentro de un filesysem?",
+        "back_content": "Gestiona la interfáz estándar de más alto nivel para manipular archivos. Hay diferentes métodos de acceso según el formato de los archivos. Aquí está lo que se discutió de la organziación lógica de los mismos (Pila, archivos indexados, etc.)."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué son los directorios? ¿Qué ventajas tienen?",
+        "back_content": "Son elementos de organización de archivos que contienen la ubicación y los atributos de cada uno.\n\nProveen una mejor organización y acceso compartido mediante permisos."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué atributos almacena un directorio respecto a sus archivos?",
+        "back_content": "Almacena: \nNombre, tipo (texto, binario, etc.) y organización lógica (archivo secuencial, etc.)\nDispositivo donde está ubicado (su volumen), el tamaño (actual y máximo) y la dirección de origen de cada uno\nEl propietario y los permisos que tienen\nFecha de creación, de ultima lectura o modificación y la liste de quienes accedieron al mismo."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué estructura suele tener un directorio?",
+        "back_content": "Un directorio puede tener una estructura jerárquica (árbol con subdirectorios) o una lista de registros simple, que es más ineficiente."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué operaciones puede realizar un directorio?",
+        "back_content": "Suele implementar operaciones para crear, eliminar o modificar atributos de los archivos."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo se gestiona el acceso de múltiples usuarios a un archivo?",
+        "back_content": "Se gestiona mediante el bloqueo de archivos o registros en uso."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué es el derecho de acceso y cuáles hay?",
+        "back_content": "Es la representación que los usuarios tendrán sobre la capacidad de acceder un archivo.\n\nPuede haber los siguientes derechos:\n- Ningun derecho de acceso, o derecho para saber la existencia solamente.\n- Derecho de ejecución o lectura.\n- Derecho para agregar (no modificar ni eliminar), o derecho para actualizar.\n- Derecho para cambiar atributos del archivo (y permisos) y para borrarlos."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo y de qué dos formas puedo decidir cuánto tamaño le asigno a un archivo en términos de espacio en el disco?",
+        "back_content": "Se decide utilizando estrategias de asignación de espacio, y estas son 2:\n\nPreasignación: Se asigna por archivo su tamaño máximo según su tipo. Muy poco eficiente por el desperdicio.\n\nAsignación Dinámica: Se asigna sobre la marcha. Termina dispersando la información si no hay espacio contiguo disponible."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo asigno espacio del disco para bloques de datos (los cuales son partes de un archivo)?",
+        "back_content": "Puede ser mediante:\n\nAsignación Contigua: Cada archivo tiene sus bloques juntos, por lo que solo se registra la dirección de origen y la cantidad de bloques. Poca flexibilidad y fragmentación externa grande ya que se debe tener el espacio requerido completo de forma continua.\n\nAsignación Encadenada: Cada archivo tiene sus bloques dispersos pero conectados mediante listas enlazadas. Requiere registrar la dirección inicial y el tamaño del archivo. Es ineficiente por el acceso aleatorio y la poca resistencia a fallos (un puntero erróneo y chau archivo)\n\nAcceso Indexado: Requiere que una tabla registre cada bloque. Resulta poco práctico en archivos físicos, y la tabla (índice) ocupa espacio."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 5,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Qué dos estrategias existen para separar un archivo en bloques de datos?",
+        "back_content": "Una es separar al archivo en bloques continuos de tamaño variable (mayor rendimiento pero peor reutilización de espacio liberado) y la otra es que se separe en bloques pequeños iguales, asemejándose al sistema de páginas para la RAM. Esta es más complicada de controlar y es más difícil que la información termine junta."
+    },
+    {
+        "tags": ["Clase 10: Sistemas de Gestión de Archivos y Asignación de Espacio en Disco"],
+        "base_difficulty": 4,
+        "source": "Stallings - Sistemas Operativos: Principios de Diseño e Internos",
+        "front_content": "¿Cómo podemos llevar el registro del espacio libre que existe en el disco? Nombra y desarrolla.",
+        "back_content": "Se puede hacer mediante:\n\n- Tablas de Bits: Se tiene una tabla donde se almacena una bandera por bloque indicando si está libre. Compacto y tardado\n- Porciones Libres Encadenadas: Es una LLI de espacios libres. Requiere poco espacio pero se busca desde el primer ítem y modificar la lista es costoso.\n- Indexación de bloques libres: Se trata al bloque libre como un archivo más y se lleva su índice. Es rápido y organizado.\n- Lista de Bloques Libres: Cada bloque tiene una identificación en donde se hace referencia a cada uno en una lista de bloques libres. Se puede cargar de esa manera a la lista por partes."
+    }
+]
+
+}
