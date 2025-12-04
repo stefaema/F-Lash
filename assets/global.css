@@ -1,0 +1,55 @@
+#c3{
+    padding: 0 !important;   /* Kill the 16px default padding */
+    margin: 0 !important;    /* Kill any default margins */
+    gap: 0 !important;       /* Kill the default flex gap */
+    width: 100% !important;  /* Ensure full width */
+    max-width: 100vw !important; /* Stop any max-width constraints */
+}
+
+.gradient-bg {
+    /* 1. The Deep Base Color */
+    background-color: #000000;
+    
+    /* 2. The Mesh Gradient Spots */
+    background-image: 
+        radial-gradient(at 0% 0%, rgb(0, 0, 0) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, rgb(14, 33, 96) 0, transparent 50%), 
+        radial-gradient(at 70% 0%, hsla(339,49%,30%,1) 0, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(270, 50%, 40%, 1) 0, transparent 50%);
+    
+    /* Make the background huge so we can move it around */
+    background-size: 200% 200%;
+    
+    /* Animate the position and the color hue */
+    animation: gradient-flow 30s ease infinite;
+    
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 4. Define the Keyframes */
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg); /* Start with original colors */
+    }
+    50% {
+        background-position: 50% 50%;
+        filter: hue-rotate(15deg); /* Subtle color shift (Purple -> Pinkish) */
+    }
+    100% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg); /* Return to start */
+    }
+}
+
+.glob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    pointer-events: none; /* Allow clicks to pass through */
+    opacity: 0.2;
+}

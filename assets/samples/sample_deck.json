@@ -1,0 +1,26 @@
+{
+  "title": "World Geography",
+  "description": "Essential capitals and physical geography features.",
+  "is_public": true,
+  "cards": [
+    {
+      "front_content": "What is the capital of **Japan**?",
+      "back_content": "Tokyo",
+      "tags": ["Asia", "Capitals"],
+      "base_difficulty": 1
+    },
+    {
+      "front_content": "Which is the <i>longest</i> river in South America?",
+      "back_content": "The Amazon River",
+      "tags": ["South America", "Rivers"],
+      "base_difficulty": 2
+    },
+    {
+      "front_content": "Which country spans the most **time zones** (including overseas territories)?",
+      "back_content": "France (12 time zones)",
+      "tags": ["Trivia", "Global"],
+      "base_difficulty": 4,
+      "source": "Guinness World Records"
+    }
+  ]
+}
